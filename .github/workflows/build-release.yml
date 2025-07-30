@@ -116,7 +116,9 @@ jobs:
           find "${{ github.workspace }}" -type f -name "*.ipk" -exec ls -lh {} \;
       - name: Release and Upload Assets
         uses: softprops/action-gh-release@v1
+        if: ${{ github.ref_type == 'tag' }}  # Запускать только для тегов
         with:
+          tag_name: ${{ github.ref_name }}  # Ключевое исправление
           files: "*.ipk"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
