@@ -30,12 +30,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Release and Upload Assets
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ github.ref }}  # КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ
-          files: "*.ipk"
-
       - name: Prepare Cache Key
         id: cache_key
         run: echo "::set-output name=timestamp::$(date +"%s")"
