@@ -17,10 +17,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-  include:
-    - arch: mipsel_24kc
-      sdk_url_path: https://downloads.openwrt.org/releases/23.05.5/targets/ramips/mt7621
-      sdk_name: openwrt-sdk-23.05.5-ramips-mt7621_gcc-12.3.0_musl.Linux-x86_64
+        include:
+          - arch: mipsel_24kc
+            sdk_url_path: https://downloads.openwrt.org/releases/23.05.5/targets/ramips/mt7621
+            sdk_name: openwrt-sdk-23.05.5-ramips-mt7621_gcc-12.3.0_musl.Linux-x86_64
     env:
       SDK_URL_PATH: ${{ matrix.sdk_url_path }}
       SDK_NAME: ${{ matrix.sdk_name }}
@@ -30,7 +30,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-- name: Set tag
+      - name: Set tag
         id: set_tag
         run: echo "RELEASE_TAG=v1.0.0" >> $GITHUB_OUTPUT
 
