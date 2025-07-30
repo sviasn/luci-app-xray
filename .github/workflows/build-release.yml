@@ -30,7 +30,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-- name: Set teg
+- name: Set tag
         id: set_tag
         run: echo "RELEASE_TAG=v1.0.0" >> $GITHUB_OUTPUT
 
